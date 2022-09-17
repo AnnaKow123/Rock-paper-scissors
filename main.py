@@ -2,8 +2,8 @@ import random
 
 print('Witaj w grze papier, kamień, nożyce. Wybierz opcję ;)')
 options=['papier', 'kamień', 'nożyce']
-x='tak'
-while x=='tak':
+check='tak'
+while check=='tak':
         
     player1=input('Gracz 1: ').lower()
     while player1 not in options:
@@ -32,5 +32,5 @@ while x=='tak':
                 print('Gracz 1 wygrał')
             else:
                 print('Komputer wygrał')
-    x=input('Czy kontynuować grę? (Tak/Nie): ').lower()
+    check=input('Czy kontynuować grę? (Tak/Nie): ').lower()
 
