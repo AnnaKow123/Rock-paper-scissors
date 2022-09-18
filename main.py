@@ -1,36 +1,61 @@
+from multiprocessing import parent_process
+from PyQt5.QtWidgets import *
 import random
 
-print('Witaj w grze kamień, papier, nożyce. Wybierz opcję ;)')
-options=['papier', 'kamień', 'nożyce']
-check='tak'
-while check=='tak':
-        
-    player1=input('Gracz 1: ').lower()
-    while player1 not in options:
-        print('Wpisano nieprawidłowe wyrażenie. Wpisz jeszcze raz')
-        player1=input('Gracz 1: ')
-        
-        
-    player2=random.choice(options)
-    print(f'Komputer: {player2}')
-    
-    if player1==player2:
-        print('Remis')
+options=['kamień', 'papier', 'nożyce']
+player2=random.choice(options)
+rock, paper, scissors = options 
+
+app=QApplication([])
+window=QWidget()
+
+button1=QPushButton(rock)
+button2=QPushButton(paper)
+button3=QPushButton(scissors)
+
+def on_button_rock():
+    alert = QMessageBox()
+    if player2==rock:
+        alert.setText('Komputer wybrał kamień. Remis')
     else:
-        if player1=='papier':
-            if player2=='kamień':
-                print('Gracz 1 wygrał')
-            else:
-                print('Komputer wygrał')
-        elif player1=='kamień':
-            if player2=='papier':
-                print('Komputer wygrał')
-            else:
-                print('Gracz 1 wygrał')
-        elif player1=='nożyce':
-            if player2=='papier':
-                print('Gracz 1 wygrał')
-            else:
-                print('Komputer wygrał')
-    check=input('Czy kontynuować grę? (Tak/Nie): ').lower()
+        if player2==paper:
+            alert.setText('Komputer wybrał papier. Komputer wygrał')
+        else:
+            alert.setText('Komputer wybrał nożyce. Wygrałeś!')
+    alert.exec()
+
+def on_button_paper():
+    alert = QMessageBox()
+    if player2==paper:
+        alert.setText('Komputer wybrał papier. Remis')
+    else:
+        if player2==scissors:
+            alert.setText('Komputer wybrał nożyce. Komputer wygrał')
+        else:
+            alert.setText('Komputer wybrał kamień. Wygrałeś!')
+    alert.exec()
+
+def on_button_scissors():
+    alert = QMessageBox()
+    if player2==scissors:
+        alert.setText('Komputer wybrał nożyce. Remis')
+    else:
+        if player2==rock:
+            alert.setText('Komputer wybrał kamień. Komputer wygrał')
+        else:
+            alert.setText('Komputer wybrał papier. Wygrałeś!')
+    alert.exec()
+
+button1.clicked.connect(on_button_rock)
+button2.clicked.connect(on_button_paper)
+button3.clicked.connect(on_button_scissors)
+
+layout=QVBoxLayout()
+layout.addWidget(button1)
+layout.addWidget(button2)
+layout.addWidget(button3)
+window.setLayout(layout)
+
+window.show()
+app.exec()
 
