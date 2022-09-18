@@ -1,6 +1,6 @@
 import random
 
-print('Witaj w grze papier, kamień, nożyce. Wybierz opcję ;)')
+print('Witaj w grze kamień, papier, nożyce. Wybierz opcję ;)')
 options=['papier', 'kamień', 'nożyce']
 check='tak'
 while check=='tak':
