@@ -7,6 +7,8 @@ rock, paper, scissors = options
 
 app=QApplication([])
 window=QWidget()
+window.setWindowTitle('Gra kamień, papier, nożyce')
+message=QLabel('<h3>Witaj w grze papier, kamień, nożyce</h3>', parent=window)
 
 button1=QPushButton(rock)
 button2=QPushButton(paper)
@@ -50,11 +52,13 @@ button2.clicked.connect(on_button_paper)
 button3.clicked.connect(on_button_scissors)
 
 layout=QVBoxLayout()
+layout.addWidget(message)
 layout.addWidget(button1)
 layout.addWidget(button2)
 layout.addWidget(button3)
 window.setLayout(layout)
 
+message.show()
 window.show()
 app.exec()
 
