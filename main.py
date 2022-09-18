@@ -1,4 +1,3 @@
-from multiprocessing import parent_process
 from PyQt5.QtWidgets import *
 import random
 
