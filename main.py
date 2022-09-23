@@ -1,5 +1,4 @@
-from multiprocessing import parent_process
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import (QDialog, QLabel, QPushButton, QMessageBox, QVBoxLayout, QApplication)
 import random
 
 options=['kamień', 'papier', 'nożyce']
@@ -67,7 +66,6 @@ if __name__ == '__main__':
     
     app=QApplication(sys.argv)
     window=WidgetGallery()
-    #message.show()
     window.show()
     app.exec()
 
