@@ -4,6 +4,7 @@ import random
 options=['kamień', 'papier', 'nożyce']
 player2=random.choice(options)
 rock, paper, scissors = options 
+    
 
 class WidgetGallery(QDialog):
     def __init__(self, parent=None):
@@ -50,8 +51,11 @@ class WidgetGallery(QDialog):
             alert.exec()
 
         button1.clicked.connect(on_button_rock)
+        button1.clicked.connect(app.exit)
         button2.clicked.connect(on_button_paper)
+        button2.clicked.connect(app.exit)
         button3.clicked.connect(on_button_scissors)
+        button3.clicked.connect(app.exit)
 
         layout=QVBoxLayout()
         layout.addWidget(message)
